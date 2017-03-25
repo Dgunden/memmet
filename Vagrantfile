@@ -24,7 +24,6 @@ Vagrant.configure(2) do |config|
     config.vm.provision :shell, inline: 'rvm install 2.3.1'
     config.vm.provision :shell, inline: 'rvm gemset create memmet && rvm 2.3.1@memmet'
     config.vm.provision :shell, inline: 'gem install rails -v 5.0.0'
-    config.vm.provision :shell, inline: 'su - postgres && psql -c "CREATE ROLE vagrant WITH CREATEDB LOGIN PASSWORD password" && psql -c "CREATE DATABASE memmet"'
 
     config.vm.synced_folder ".", "/opt/src/", type: "nfs"
 end
